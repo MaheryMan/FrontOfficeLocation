@@ -1,7 +1,5 @@
 CREATE DATABASE location_S5
--- =========================
--- TABLE: TypeEnergie
--- =========================
+\c location_s5;
 CREATE TABLE type_energie (
     id SERIAL PRIMARY KEY,
     libelle VARCHAR(255) NOT NULL UNIQUE
