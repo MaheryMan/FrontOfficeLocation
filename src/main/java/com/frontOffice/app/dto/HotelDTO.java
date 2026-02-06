@@ -1,9 +1,16 @@
 package com.frontOffice.app.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class HotelDTO {
     private Long id;
     private String nom;
+    
+    @JsonProperty("distanceAeroport")
     private Double distance_aeroport;
+    
+    public HotelDTO() {}
+    
     public Long getId() {
         return id;
     }
