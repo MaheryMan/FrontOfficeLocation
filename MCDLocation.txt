@@ -1,0 +1,38 @@
+TypeEnergie:
+	-id SERIAL PK
+	-libelle(unique,not null) VARCHAR
+
+Voiture:
+	-id SERIAL PK
+	-numero(unique) VARCHAR
+	-idTypeEnergie FK(TypeEnergie)
+	-capacite (not null) INT check >0
+
+Client:
+	-id SERIAL PK
+	-nom (not null) VARCHAR
+	-numeroPassport(unique,not null) VARCHAR
+	-email  VARCHAR
+	-contact VARCHAR
+
+Hotel:
+	-id SERIAL PK
+	-nom(unique,not null) VARCHAR
+	-distanceAeroport (not null) DECIMAL(10,2) check >0
+
+Reservation:
+	-id SERIAL PK
+	-idClient FK(Client)
+	-idHotel FK(Hotel)
+	-dateHeureArrivee (not null) TIMESTAMP
+	-nombrePassager(not null) INT check>0
+
+Unite:
+	-id SERIAL PK
+	-libelle(not null,unique) VARCHAR
+
+Parametre:
+	-id SERIAL PK
+	-libelle (not null,unique) VARCHAR
+	-valeur (not null) VARCHAR
+	-idUnite FK(unite)
