@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: frontoffice-location
+    runtime: docker
+    plan: free
+    envVars:
+      - key: BACKOFFICE_API_URL
+        value: https://backofficelocation.onrender.com/api
+      - key: JAVA_TOOL_OPTIONS
+        value: -Xmx512m -Xms256m
+    healthCheckPath: /
