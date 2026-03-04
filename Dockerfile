@@ -19,8 +19,8 @@ WORKDIR /app
 # Create a non-root user
 RUN groupadd -r spring && useradd -r -g spring spring
 
-# Copy the built JAR from build stage
-COPY --from=build /app/target/*.jar app.jar
+# Copy the built WAR from build stage
+COPY --from=build /app/target/*.war app.war
 
 # Change ownership to non-root user
 RUN chown -R spring:spring /app
@@ -30,4 +30,4 @@ USER spring
 EXPOSE 8081
 
 # Run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["java", "-jar", "app.war"]
